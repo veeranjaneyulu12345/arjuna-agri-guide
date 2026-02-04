@@ -1,7 +1,10 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, Sparkles } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const CTA = () => {
+  const { t } = useLanguage();
+
   return (
     <section className="py-20 lg:py-32 bg-gradient-hero relative overflow-hidden">
       {/* Decorative elements */}
@@ -20,17 +23,16 @@ const CTA = () => {
           </div>
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-primary-foreground mb-6">
-            Ready to Transform Your Agricultural Research?
+            {t('cta.title1')} {t('cta.title2')}
           </h2>
 
           <p className="text-lg text-primary-foreground/80 mb-8 max-w-2xl mx-auto">
-            Join thousands of researchers and farmers who are already using Arjuna Agri 
-            to make data-driven decisions and achieve better outcomes.
+            {t('cta.description')}
           </p>
 
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
             <Button variant="accent" size="lg" className="group">
-              Get Started Free
+              {t('cta.button')}
               <ArrowRight className="w-5 h-5 group-hover:translate-x-1 transition-transform" />
             </Button>
             <Button variant="heroOutline" size="lg">
@@ -39,7 +41,7 @@ const CTA = () => {
           </div>
 
           <p className="mt-6 text-sm text-primary-foreground/60">
-            No credit card required • Free 14-day trial • Cancel anytime
+            {t('cta.note')}
           </p>
         </div>
       </div>

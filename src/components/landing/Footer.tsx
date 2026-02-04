@@ -1,6 +1,9 @@
 import { Leaf, Mail, MapPin, Phone } from "lucide-react";
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Footer = () => {
+  const { t } = useLanguage();
+
   return (
     <footer className="bg-foreground text-primary-foreground py-16">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -16,8 +19,7 @@ const Footer = () => {
               </span>
             </div>
             <p className="text-primary-foreground/70 mb-6">
-              Empowering agricultural research with data-driven insights and 
-              sustainable practices.
+              {t('footer.description')}
             </p>
             <div className="space-y-2 text-sm text-primary-foreground/70">
               <div className="flex items-center gap-2">
@@ -37,34 +39,34 @@ const Footer = () => {
 
           {/* Quick Links */}
           <div>
-            <h4 className="font-semibold mb-4">Quick Links</h4>
+            <h4 className="font-semibold mb-4">{t('footer.product')}</h4>
             <ul className="space-y-2 text-primary-foreground/70">
-              <li><a href="#features" className="hover:text-primary-foreground transition-colors">Features</a></li>
-              <li><a href="#how-it-works" className="hover:text-primary-foreground transition-colors">How It Works</a></li>
-              <li><a href="#about" className="hover:text-primary-foreground transition-colors">About Us</a></li>
-              <li><a href="#" className="hover:text-primary-foreground transition-colors">Pricing</a></li>
+              <li><a href="#features" className="hover:text-primary-foreground transition-colors">{t('nav.features')}</a></li>
+              <li><a href="#how-it-works" className="hover:text-primary-foreground transition-colors">{t('nav.howItWorks')}</a></li>
+              <li><a href="#about" className="hover:text-primary-foreground transition-colors">{t('nav.about')}</a></li>
+              <li><a href="#" className="hover:text-primary-foreground transition-colors">{t('footer.pricing')}</a></li>
             </ul>
           </div>
 
           {/* Resources */}
           <div>
-            <h4 className="font-semibold mb-4">Resources</h4>
+            <h4 className="font-semibold mb-4">{t('footer.company')}</h4>
             <ul className="space-y-2 text-primary-foreground/70">
-              <li><a href="#" className="hover:text-primary-foreground transition-colors">Documentation</a></li>
-              <li><a href="#" className="hover:text-primary-foreground transition-colors">API Reference</a></li>
-              <li><a href="#" className="hover:text-primary-foreground transition-colors">Blog</a></li>
-              <li><a href="#" className="hover:text-primary-foreground transition-colors">Case Studies</a></li>
+              <li><a href="#" className="hover:text-primary-foreground transition-colors">{t('footer.documentation')}</a></li>
+              <li><a href="#" className="hover:text-primary-foreground transition-colors">{t('footer.api')}</a></li>
+              <li><a href="#" className="hover:text-primary-foreground transition-colors">{t('footer.blog')}</a></li>
+              <li><a href="#" className="hover:text-primary-foreground transition-colors">{t('footer.careers')}</a></li>
             </ul>
           </div>
 
           {/* Legal */}
           <div>
-            <h4 className="font-semibold mb-4">Legal</h4>
+            <h4 className="font-semibold mb-4">{t('footer.legal')}</h4>
             <ul className="space-y-2 text-primary-foreground/70">
-              <li><a href="#" className="hover:text-primary-foreground transition-colors">Privacy Policy</a></li>
-              <li><a href="#" className="hover:text-primary-foreground transition-colors">Terms of Service</a></li>
-              <li><a href="#" className="hover:text-primary-foreground transition-colors">Cookie Policy</a></li>
-              <li><a href="#" className="hover:text-primary-foreground transition-colors">Security</a></li>
+              <li><a href="#" className="hover:text-primary-foreground transition-colors">{t('footer.privacy')}</a></li>
+              <li><a href="#" className="hover:text-primary-foreground transition-colors">{t('footer.terms')}</a></li>
+              <li><a href="#" className="hover:text-primary-foreground transition-colors">{t('footer.cookies')}</a></li>
+              <li><a href="#" className="hover:text-primary-foreground transition-colors">{t('footer.contact')}</a></li>
             </ul>
           </div>
         </div>
@@ -72,7 +74,7 @@ const Footer = () => {
         {/* Bottom Bar */}
         <div className="mt-12 pt-8 border-t border-primary-foreground/10 flex flex-col sm:flex-row justify-between items-center gap-4">
           <p className="text-sm text-primary-foreground/60">
-            © 2026 Arjuna Agri. All rights reserved.
+            {t('footer.copyright')}
           </p>
           <div className="flex items-center gap-4">
             <a href="#" className="text-primary-foreground/60 hover:text-primary-foreground transition-colors">

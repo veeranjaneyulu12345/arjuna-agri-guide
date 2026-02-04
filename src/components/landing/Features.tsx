@@ -1,39 +1,42 @@
 import { BarChart3, CloudRain, Leaf, Map, Microscope, Zap } from "lucide-react";
-
-const features = [
-  {
-    icon: Microscope,
-    title: "Advanced Research Tools",
-    description: "Access powerful analytics and research methodologies designed specifically for agricultural studies.",
-  },
-  {
-    icon: BarChart3,
-    title: "Data-Driven Insights",
-    description: "Transform raw agricultural data into actionable recommendations with our AI-powered analysis engine.",
-  },
-  {
-    icon: CloudRain,
-    title: "Weather Integration",
-    description: "Real-time weather data integration to optimize planting, irrigation, and harvesting schedules.",
-  },
-  {
-    icon: Map,
-    title: "Soil Mapping",
-    description: "Comprehensive soil analysis and mapping to understand nutrient levels and optimize crop selection.",
-  },
-  {
-    icon: Leaf,
-    title: "Sustainable Practices",
-    description: "Evidence-based recommendations for sustainable farming that protect the environment while maximizing yield.",
-  },
-  {
-    icon: Zap,
-    title: "Real-Time Monitoring",
-    description: "Monitor crop health, growth patterns, and potential issues with instant alerts and notifications.",
-  },
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const Features = () => {
+  const { t } = useLanguage();
+
+  const features = [
+    {
+      icon: Microscope,
+      titleKey: 'features.research.title',
+      descriptionKey: 'features.research.description',
+    },
+    {
+      icon: BarChart3,
+      titleKey: 'features.data.title',
+      descriptionKey: 'features.data.description',
+    },
+    {
+      icon: CloudRain,
+      titleKey: 'features.weather.title',
+      descriptionKey: 'features.weather.description',
+    },
+    {
+      icon: Map,
+      titleKey: 'features.soil.title',
+      descriptionKey: 'features.soil.description',
+    },
+    {
+      icon: Leaf,
+      titleKey: 'features.sustainable.title',
+      descriptionKey: 'features.sustainable.description',
+    },
+    {
+      icon: Zap,
+      titleKey: 'features.monitoring.title',
+      descriptionKey: 'features.monitoring.description',
+    },
+  ];
+
   return (
     <section id="features" className="py-20 lg:py-32 bg-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -41,15 +44,14 @@ const Features = () => {
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 mb-4">
             <Leaf className="w-4 h-4 text-primary" />
-            <span className="text-sm font-medium text-primary">Features</span>
+            <span className="text-sm font-medium text-primary">{t('features.badge')}</span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4">
-            Everything You Need for{" "}
-            <span className="text-gradient-primary">Agricultural Excellence</span>
+            {t('features.title1')}{" "}
+            <span className="text-gradient-primary">{t('features.title2')}</span>
           </h2>
           <p className="text-lg text-muted-foreground">
-            Our comprehensive platform provides all the tools and insights needed to 
-            revolutionize your agricultural research and farming practices.
+            {t('features.description')}
           </p>
         </div>
 
@@ -57,7 +59,7 @@ const Features = () => {
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
           {features.map((feature, index) => (
             <div
-              key={feature.title}
+              key={feature.titleKey}
               className="group p-6 lg:p-8 rounded-2xl bg-gradient-card border border-border hover:border-primary/30 transition-all duration-300 hover:shadow-elevated"
               style={{ animationDelay: `${index * 0.1}s` }}
             >
@@ -65,10 +67,10 @@ const Features = () => {
                 <feature.icon className="w-7 h-7 text-primary-foreground" />
               </div>
               <h3 className="text-xl font-bold text-foreground mb-3">
-                {feature.title}
+                {t(feature.titleKey)}
               </h3>
               <p className="text-muted-foreground leading-relaxed">
-                {feature.description}
+                {t(feature.descriptionKey)}
               </p>
             </div>
           ))}
