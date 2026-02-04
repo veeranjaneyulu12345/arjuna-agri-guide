@@ -1,14 +1,17 @@
 import { Button } from "@/components/ui/button";
 import { ArrowRight, CheckCircle, Target, Users, Globe } from "lucide-react";
-
-const values = [
-  "Committed to sustainable agricultural practices",
-  "Data privacy and security as top priorities",
-  "Continuous research and innovation",
-  "Supporting farmers of all scales",
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const About = () => {
+  const { t } = useLanguage();
+
+  const values = [
+    "Committed to sustainable agricultural practices",
+    "Data privacy and security as top priorities",
+    "Continuous research and innovation",
+    "Supporting farmers of all scales",
+  ];
+
   return (
     <section id="about" className="py-20 lg:py-32 bg-background">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
@@ -16,22 +19,14 @@ const About = () => {
           {/* Left Content */}
           <div>
             <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-primary/10 mb-4">
-              <span className="text-sm font-medium text-primary">About Us</span>
+              <span className="text-sm font-medium text-primary">{t('about.badge')}</span>
             </div>
             <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-6">
-              Empowering Agriculture Through{" "}
-              <span className="text-gradient-primary">Research & Technology</span>
+              {t('about.title1')}{" "}
+              <span className="text-gradient-primary">{t('about.title2')}</span>
             </h2>
-            <p className="text-lg text-muted-foreground mb-6">
-              Arjuna Agri was founded with a mission to bridge the gap between 
-              agricultural research and practical farming. We believe that every 
-              farmer deserves access to the latest scientific insights and 
-              data-driven recommendations.
-            </p>
             <p className="text-lg text-muted-foreground mb-8">
-              Our team of agronomists, data scientists, and technology experts 
-              work together to create tools that make complex research accessible 
-              and actionable for farmers worldwide.
+              {t('about.description')}
             </p>
 
             {/* Values */}
@@ -54,18 +49,18 @@ const About = () => {
           <div className="grid sm:grid-cols-2 gap-4">
             <div className="p-6 rounded-2xl bg-gradient-hero text-primary-foreground shadow-elevated">
               <Target className="w-10 h-10 mb-4 opacity-80" />
-              <div className="text-4xl font-bold mb-2">15+</div>
-              <div className="text-primary-foreground/80">Years of Research</div>
+              <div className="text-4xl font-bold mb-2">{t('about.stat3.value')}</div>
+              <div className="text-primary-foreground/80">{t('about.stat3.label')}</div>
             </div>
             <div className="p-6 rounded-2xl bg-card border border-border shadow-soft">
               <Users className="w-10 h-10 mb-4 text-primary" />
-              <div className="text-4xl font-bold text-foreground mb-2">200+</div>
-              <div className="text-muted-foreground">Expert Researchers</div>
+              <div className="text-4xl font-bold text-foreground mb-2">{t('about.stat2.value')}</div>
+              <div className="text-muted-foreground">{t('about.stat2.label')}</div>
             </div>
             <div className="p-6 rounded-2xl bg-card border border-border shadow-soft">
               <Globe className="w-10 h-10 mb-4 text-secondary" />
-              <div className="text-4xl font-bold text-foreground mb-2">45</div>
-              <div className="text-muted-foreground">Countries Served</div>
+              <div className="text-4xl font-bold text-foreground mb-2">{t('about.stat1.value')}</div>
+              <div className="text-muted-foreground">{t('about.stat1.label')}</div>
             </div>
             <div className="p-6 rounded-2xl bg-gradient-accent text-secondary-foreground shadow-elevated">
               <CheckCircle className="w-10 h-10 mb-4 opacity-80" />

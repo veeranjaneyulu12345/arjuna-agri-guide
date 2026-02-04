@@ -1,9 +1,13 @@
 import { Button } from "@/components/ui/button";
 import { Leaf, Menu, X } from "lucide-react";
 import { useState } from "react";
+import { useLanguage } from "@/contexts/LanguageContext";
+import WeatherWidget from "./WeatherWidget";
+import LanguageSwitcher from "./LanguageSwitcher";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
+  const { t } = useLanguage();
 
   return (
     <header className="fixed top-0 left-0 right-0 z-50 bg-background/80 backdrop-blur-md border-b border-border">
@@ -19,23 +23,29 @@ const Header = () => {
             </span>
           </div>
 
+          {/* Weather Widget - Desktop */}
+          <div className="hidden lg:block">
+            <WeatherWidget />
+          </div>
+
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8">
             <a href="#features" className="text-muted-foreground hover:text-foreground transition-colors font-medium">
-              Features
+              {t('nav.features')}
             </a>
             <a href="#how-it-works" className="text-muted-foreground hover:text-foreground transition-colors font-medium">
-              How It Works
+              {t('nav.howItWorks')}
             </a>
             <a href="#about" className="text-muted-foreground hover:text-foreground transition-colors font-medium">
-              About
+              {t('nav.about')}
             </a>
           </nav>
 
           {/* CTA Buttons */}
           <div className="hidden md:flex items-center gap-3">
-            <Button variant="ghost">Sign In</Button>
-            <Button variant="default">Get Started</Button>
+            <LanguageSwitcher />
+            <Button variant="ghost">{t('auth.signIn')}</Button>
+            <Button variant="default">{t('auth.getStarted')}</Button>
           </div>
 
           {/* Mobile Menu Button */}
@@ -52,18 +62,25 @@ const Header = () => {
       {isMenuOpen && (
         <div className="md:hidden bg-background border-b border-border">
           <nav className="container mx-auto px-4 py-4 flex flex-col gap-4">
+            {/* Weather Widget - Mobile */}
+            <div className="pb-4 border-b border-border">
+              <WeatherWidget />
+            </div>
             <a href="#features" className="text-muted-foreground hover:text-foreground transition-colors font-medium py-2">
-              Features
+              {t('nav.features')}
             </a>
             <a href="#how-it-works" className="text-muted-foreground hover:text-foreground transition-colors font-medium py-2">
-              How It Works
+              {t('nav.howItWorks')}
             </a>
             <a href="#about" className="text-muted-foreground hover:text-foreground transition-colors font-medium py-2">
-              About
+              {t('nav.about')}
             </a>
             <div className="flex flex-col gap-2 pt-4 border-t border-border">
-              <Button variant="ghost" className="w-full">Sign In</Button>
-              <Button variant="default" className="w-full">Get Started</Button>
+              <div className="flex justify-center pb-2">
+                <LanguageSwitcher />
+              </div>
+              <Button variant="ghost" className="w-full">{t('auth.signIn')}</Button>
+              <Button variant="default" className="w-full">{t('auth.getStarted')}</Button>
             </div>
           </nav>
         </div>

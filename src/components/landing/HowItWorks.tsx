@@ -1,42 +1,44 @@
 import { ArrowRight, Database, LineChart, Lightbulb } from "lucide-react";
-
-const steps = [
-  {
-    number: "01",
-    icon: Database,
-    title: "Input Your Data",
-    description: "Upload your agricultural data including soil samples, weather patterns, crop history, and current conditions.",
-  },
-  {
-    number: "02",
-    icon: LineChart,
-    title: "AI Analysis",
-    description: "Our advanced algorithms analyze your data against thousands of research studies and farming patterns.",
-  },
-  {
-    number: "03",
-    icon: Lightbulb,
-    title: "Get Recommendations",
-    description: "Receive personalized, actionable insights to optimize your farming practices and increase yields.",
-  },
-];
+import { useLanguage } from "@/contexts/LanguageContext";
 
 const HowItWorks = () => {
+  const { t } = useLanguage();
+
+  const steps = [
+    {
+      number: "01",
+      icon: Database,
+      titleKey: 'howItWorks.step1.title',
+      descriptionKey: 'howItWorks.step1.description',
+    },
+    {
+      number: "02",
+      icon: LineChart,
+      titleKey: 'howItWorks.step2.title',
+      descriptionKey: 'howItWorks.step2.description',
+    },
+    {
+      number: "03",
+      icon: Lightbulb,
+      titleKey: 'howItWorks.step3.title',
+      descriptionKey: 'howItWorks.step3.description',
+    },
+  ];
+
   return (
     <section id="how-it-works" className="py-20 lg:py-32 bg-muted/50">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto mb-16">
           <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-secondary/20 mb-4">
-            <span className="text-sm font-medium text-secondary-foreground">How It Works</span>
+            <span className="text-sm font-medium text-secondary-foreground">{t('howItWorks.badge')}</span>
           </div>
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-bold text-foreground mb-4">
-            Simple Process,{" "}
-            <span className="text-gradient-primary">Powerful Results</span>
+            {t('howItWorks.title1')}{" "}
+            <span className="text-gradient-primary">{t('howItWorks.title2')}</span>
           </h2>
           <p className="text-lg text-muted-foreground">
-            Get started in minutes and transform your agricultural research with our 
-            streamlined three-step process.
+            {t('features.description')}
           </p>
         </div>
 
@@ -62,10 +64,10 @@ const HowItWorks = () => {
 
                 {/* Content */}
                 <h3 className="text-xl font-bold text-foreground mb-3">
-                  {step.title}
+                  {t(step.titleKey)}
                 </h3>
                 <p className="text-muted-foreground max-w-sm">
-                  {step.description}
+                  {t(step.descriptionKey)}
                 </p>
 
                 {/* Arrow (Mobile & Tablet) */}
