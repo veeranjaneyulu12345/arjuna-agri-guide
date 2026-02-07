@@ -14,6 +14,7 @@ const translations: Record<Language, Record<string, string>> = {
     'nav.features': 'Features',
     'nav.howItWorks': 'How It Works',
     'nav.about': 'About',
+    'nav.marketPrices': 'Market Prices',
     'auth.signIn': 'Sign In',
     'auth.getStarted': 'Get Started',
     
@@ -110,6 +111,7 @@ const translations: Record<Language, Record<string, string>> = {
     'nav.features': 'ఫీచర్లు',
     'nav.howItWorks': 'ఎలా పని చేస్తుంది',
     'nav.about': 'మా గురించి',
+    'nav.marketPrices': 'మార్కెట్ ధరలు',
     'auth.signIn': 'సైన్ ఇన్',
     'auth.getStarted': 'ప్రారంభించండి',
     
@@ -206,6 +208,7 @@ const translations: Record<Language, Record<string, string>> = {
     'nav.features': 'विशेषताएं',
     'nav.howItWorks': 'कैसे काम करता है',
     'nav.about': 'हमारे बारे में',
+    'nav.marketPrices': 'बाजार मूल्य',
     'auth.signIn': 'साइन इन',
     'auth.getStarted': 'शुरू करें',
     

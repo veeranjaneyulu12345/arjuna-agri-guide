@@ -5,6 +5,7 @@ import HowItWorks from "@/components/landing/HowItWorks";
 import About from "@/components/landing/About";
 import CTA from "@/components/landing/CTA";
 import Footer from "@/components/landing/Footer";
+import { MarketDashboard } from "@/components/market/MarketDashboard";
 
 const Index = () => {
   return (
@@ -12,6 +13,7 @@ const Index = () => {
       <Header />
       <main>
         <Hero />
+        <MarketDashboard />
         <Features />
         <HowItWorks />
         <About />
