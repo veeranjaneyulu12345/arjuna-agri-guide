@@ -30,6 +30,9 @@ const Header = () => {
 
           {/* Desktop Navigation */}
           <nav className="hidden md:flex items-center gap-8">
+            <a href="#market-prices" className="text-muted-foreground hover:text-foreground transition-colors font-medium">
+              {t('nav.marketPrices')}
+            </a>
             <a href="#features" className="text-muted-foreground hover:text-foreground transition-colors font-medium">
               {t('nav.features')}
             </a>
@@ -66,6 +69,9 @@ const Header = () => {
             <div className="pb-4 border-b border-border">
               <WeatherWidget />
             </div>
+            <a href="#market-prices" className="text-muted-foreground hover:text-foreground transition-colors font-medium py-2">
+              {t('nav.marketPrices')}
+            </a>
             <a href="#features" className="text-muted-foreground hover:text-foreground transition-colors font-medium py-2">
               {t('nav.features')}
             </a>
